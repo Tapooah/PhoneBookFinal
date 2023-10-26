@@ -1,5 +1,6 @@
 package tests;
 
+import manager.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,24 +11,19 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 public class TestBase {
-    WebDriver wd;
+
+    protected static ApplicationManager app = new ApplicationManager();
 
     @BeforeMethod
-    public void preCondition() {
+    public void setUp() {
+        app.init();
 
-        // 1) open browser
-        wd = new ChromeDriver();
-
-        // 2) open link
-        wd.navigate().to("https://telranedu.web.app/");
-        wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterMethod
     public void tearDown() {
-        // 7) driver quit
-        wd.quit();
+        app.stop();
+
     }
 
 
