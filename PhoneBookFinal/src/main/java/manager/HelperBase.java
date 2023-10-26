@@ -22,5 +22,13 @@ public class HelperBase {
             elem.sendKeys(text);
         }
     }
+
+    public void click(By locator) {
+        wd.findElement(locator).click();
+    }
+
+
+
+
     ////////////////////////////////////// ˄ service methods ˄ //////////////////////////////////////
 }

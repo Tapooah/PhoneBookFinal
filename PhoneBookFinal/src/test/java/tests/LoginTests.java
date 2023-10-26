@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
@@ -27,7 +28,12 @@ public class LoginTests extends TestBase {
     // 7) driver quit
     // ///////////////////////////////////////////////////////////////////////////////////////// //
 
-
+@BeforeMethod
+public void preCondition(){
+    if (app.getHelperUser().isLogged()){
+        app.getHelperUser().logout();
+    }
+}
     //success(positive) login test:
     @Test
     public void successLogin() {
