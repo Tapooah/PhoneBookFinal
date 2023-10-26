@@ -27,7 +27,6 @@ public class ApplicationManager {
     }
 
 
-
     ////////////////////////////////////// ˅ getter ˅ //////////////////////////////////////
     public HelperUser getHelperUser() {
         return helperUser;
