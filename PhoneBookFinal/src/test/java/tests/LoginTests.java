@@ -32,13 +32,13 @@ public class LoginTests extends TestBase {
     @Test
     public void successLogin() {
         // 3) open form
-        openLoginRegistrationForm();
+        app.getHelperUser().openLoginRegistrationForm();
 
         // 4) fill open
-        fillLoginRegistrationForm("noa033@gmail.com", "Nnoa12345$");
+        app.getHelperUser().fillLoginRegistrationForm("noa033@gmail.com", "Nnoa12345$");
 
         // 5) submit login
-        submitLogin();
+        app.getHelperUser().submitLogin();
         // 6) Assert(check is login success)
 
     }
@@ -47,11 +47,11 @@ public class LoginTests extends TestBase {
     @Test
     public void loginNegativeTestWrongEmail() {
         // 3) open form
-        openLoginRegistrationForm();
+        app.getHelperUser().openLoginRegistrationForm();
         // 4) fill open + invalid data
-        fillLoginRegistrationForm("noagmail.com", "Nnoa12345$");
+        app.getHelperUser().fillLoginRegistrationForm("noagmail.com", "Nnoa12345$");
         // 5) submit login
-        submitLogin();
+        app.getHelperUser().submitLogin();
         // 6) Assert(check is login unsuccessful), logout present? NOT
 
     }
