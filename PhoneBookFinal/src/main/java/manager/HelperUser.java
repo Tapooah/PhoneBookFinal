@@ -58,6 +58,19 @@ public class HelperUser extends HelperBase {
         }
     }
 
+    public boolean isErrorFormatDisplayed() {
+        Alert alert = wd.switchTo().alert();
+//        for example:
+//        alert.getText();//get text from alert
+//        alert.sendKeys("hello world");//type text in alert
+//        alert.accept();//click on OK button
+//        alert.dismiss();//click on CANCEL button
+        String errorText = alert.getText();
+        System.out.println(errorText);
+        alert.accept();
+        return errorText.contains("Wrong email or password");
+    }
+
 
     ////////////////////////////////////// ˄ service methods ˄ //////////////////////////////////////
 }

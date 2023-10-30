@@ -63,6 +63,6 @@ public class LoginTests extends TestBase {
         // 6) Assert(check is login unsuccessful), logout present? NOT
         Assert.assertFalse(app.getHelperUser().isLogged());
         Assert.assertTrue(app.getHelperUser().isAlertDisplayed());
-
+        Assert.assertTrue(app.getHelperUser().isErrorFormatDisplayed());
     }
 }
