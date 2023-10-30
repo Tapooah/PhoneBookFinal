@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,12 +29,13 @@ public class LoginTests extends TestBase {
     // 7) driver quit
     // ///////////////////////////////////////////////////////////////////////////////////////// //
 
-@BeforeMethod
-public void preCondition(){
-    if (app.getHelperUser().isLogged()){
-        app.getHelperUser().logout();
+    @BeforeMethod
+    public void preCondition() {
+        if (app.getHelperUser().isLogged()) {
+            app.getHelperUser().logout();
+        }
     }
-}
+
     //success(positive) login test:
     @Test
     public void successLogin() {
@@ -41,12 +43,12 @@ public void preCondition(){
         app.getHelperUser().openLoginRegistrationForm();
 
         // 4) fill open
-        app.getHelperUser().fillLoginRegistrationForm("noa033@gmail.com", "Nnoa12345$");
+        app.getHelperUser().fillLoginRegistrationForm("noa@gmail.com", "Nnoa12345$");
 
         // 5) submit login
         app.getHelperUser().submitLogin();
         // 6) Assert(check is login success)
-
+        Assert.assertTrue(app.getHelperUser().isLogged());
     }
 
     //unsuccessful(negative) login test:
@@ -59,6 +61,8 @@ public void preCondition(){
         // 5) submit login
         app.getHelperUser().submitLogin();
         // 6) Assert(check is login unsuccessful), logout present? NOT
+        Assert.assertFalse(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isAlertDisplayed());
 
     }
 }
