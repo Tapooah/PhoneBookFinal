@@ -13,7 +13,7 @@ public void preCondition(){
 }
     @Test
     public void successRegistration() {
-        int i =(int)System.currentTimeMillis()/1000;
+        int i =(int)(System.currentTimeMillis()/1000)%3600;
         // 3) open form
         app.getHelperUser().openLoginRegistrationForm();
 
